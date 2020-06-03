@@ -1,0 +1,16 @@
+{% extends 'blog/base.html'%}
+{% block title_block %}
+  after logout
+{% endblock %}
+
+
+
+{% block body_block %}
+  <div class="container-fluid">   
+    <div class="jumbotron">
+      <h1>You have logged out successfully</h1>
+      <legend><a href="{% url 'login'%}">Click </a>here to login again</legend>
+
+    </div>
+  </div>
+{% endblock %}

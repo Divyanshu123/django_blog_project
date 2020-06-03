@@ -1,0 +1,21 @@
+{% extends 'blog/base.html'%}
+{% block title_block %}
+user drafts
+{% endblock %}
+
+
+
+{% block body_block %}
+   <div class="container-fluid">
+     <div class="jumbotron">
+       <h1>Draft Lists!</h1>
+         {% for draft in drafts %}
+         <h3><a href="{% url 'blog:user_draft_detail' pk=draft.pk %}">{{draft.title}}</a></h3>
+         <p>{{draft.created_date|date:'d M Y'}}</p>
+   {% endfor %}
+
+     </div>
+
+   </div>
+
+{% endblock %}

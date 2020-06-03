@@ -1,0 +1,22 @@
+{% extends 'blog/base.html'%}
+{% block title_block %}
+  Login
+{% endblock %}
+
+
+
+{% block body_block %}
+
+  <div class="container-fluid">
+    <div class="jumbotron">
+        <form action='{% url 'login'%}' method="POST">
+          {% csrf_token%}
+          {{user_login_form.as_p}}
+          <br>
+           <p><span><input class='btn btn-primary btn-lg' type="submit" name="" value="Login"></span><span> Don't have an account? <a href="{% url 'blog:register'%}">Register Here</a></span></p>
+
+        </form>
+    </div>
+
+  </div>
+{% endblock %}

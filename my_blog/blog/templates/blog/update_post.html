@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% block title_block %}
+update post
+{% endblock %}
+
+
+{% block body_block %}
+ <div class="container-fluid">
+   <div class="jumbotron">
+     <form method="post">
+
+       {% csrf_token %}
+       {{form.as_p}}
+       <input class='btn btn-success' type="submit" name="" value="Update">
+
+     </form>
+
+   </div>
+
+ </div>
+{% endblock %}

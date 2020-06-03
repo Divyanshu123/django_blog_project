@@ -1,0 +1,26 @@
+{% extends 'blog/base.html'%}
+{% block title_block %}
+user draft detail
+{% endblock %}
+
+
+
+  {% block body_block %}
+
+<div class="container-fluid">
+  <div class="jumbotron">
+
+
+      <h1>{{draft.title}}</h1>
+      <legend> {{draft.text}}</legend>
+      <p>Created On: {{draft.created_date|date:'d M Y'}}</p>
+      <p><span><a class='btn btn-primary' href="{% url 'blog:publish_post' pk=draft.pk %}">Publish</a></span>
+      <span><a  class = 'btn btn-danger' href="{% url 'blog:delete_post' pk=draft.pk %}">Delete</a></span></p>
+
+
+
+
+  </div>
+
+</div>
+{% endblock %}

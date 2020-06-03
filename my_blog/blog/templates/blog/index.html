@@ -1,0 +1,24 @@
+{% extends 'blog/base.html'%}
+{% block title_block %}
+ Index
+{% endblock %}
+
+
+
+{% block body_block %}
+
+  <div class="container-fluid">
+    <div class="jumbotron">
+      <h1>List of All Posts!</h1>
+      <br>
+      {% for post in posts %}
+      <h3><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h3>
+      <p>By: <span><a href="{% url 'blog:author_posts' pk=post.author.pk %}">{{ post.author.username }}, </a></span><span>{{ post.published_date|date:'d M Y' }}, </span><span><a href="{% url 'blog:post_comments' pk=post.pk %}"> Comments {{post.comments.count }}</a></span></p>
+      {% endfor %}
+
+
+    </div>
+
+  </div>
+
+{% endblock %}

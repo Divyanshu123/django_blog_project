@@ -1,0 +1,17 @@
+{% extends 'blog/base.html'%}
+{% block title_block %}
+Register
+{% endblock %}
+
+
+
+{% block body_block %}
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h1>You've Registered successfully!</h1>
+    <legend><a href="{% url 'login' %}">Click </a>here to login!</legend>
+
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'blog/base.html'%}
+{% block title_block %}
+post comments
+{% endblock %}
+
+
+
+{% block body_block %}
+  <div class="container-fluid">
+    <div class="jumbotron">
+      {% for comment in comments %}
+      <p><legend>{{comment.text}}</legend></p>
+      <p><small>Posted By: {{comment.author}},</small><small> {{comment.created_date|date:'d M Y'}}</small></p>
+      {% endfor %}
+
+    </div>
+
+  </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'blog/base.html'%}
+{% block title_block %}
+author posts
+{% endblock %}
+
+
+
+{% block body_block %}
+  <div class="container-fluid">
+    <div class="jumbotron">
+      {% if user.is_authenticated %}
+      <h1>Here is the list of Your posts:</h1>
+      {% else %}
+      <h1>Here is the list of {{author.username}}'s posts:</h1>
+      {% endif %}
+
+      {% for post in author_posts %}
+      <h3><a href="{% url 'blog:post_detail' pk=post.id %}">{{post.title}}</a></h3>
+      <p><span>{{post.published_date|date:'d M Y'}} </span><span class='btn btn-default'><a href="{% url 'blog:post_comments' pk=post.id %}"> Comments {{post.comments.count}}</a></span></p>
+      {% endfor %}
+
+    </div>
+
+  </div>
+{% endblock %}

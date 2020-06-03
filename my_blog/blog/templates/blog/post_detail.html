@@ -1,0 +1,36 @@
+{% extends 'blog/base.html'%}
+{% block title_block %}
+post detail
+{% endblock %}
+
+
+
+{% block body_block %}
+
+  <div class="container-fluid">
+    <div class="jumbotron">
+      <h1 style='text_align:center;'>{{post_detail.title}}</h1>
+      <p>{{post_detail.text}}</p>
+      <legend></legend>
+      <br>
+
+   {% if user.is_authenticated and post_detail.author == user %}
+   <p><span>Published On: {{post_detail.published_date|date:'d M Y'}}</span></p><p>  <a class='btn btn-info' href="{% url 'blog:post_comments' pk=post_detail.pk %}"> Comments {{post_detail.comments.count}}
+  </a><span> <a class='btn btn-danger' href="{% url 'blog:delete_post' pk=post_detail.pk %}"> Delete Post</a></span>
+   <span> <a class='btn btn-primary' href="{% url 'blog:update_post' pk=post_detail.pk %}">Update Post</a></span></p>
+
+
+
+
+    {%else%}
+   <p><span>Writte By:<a href="{% url 'blog:author_posts' pk=post_detail.author.pk %}"> {{post_detail.author.username}}, </a></span><span> {{post_detail.published_date|date:'d M Y'}}</span></p>
+ <p><span><a class='btn btn-info' href="{% url 'blog:post_comments' pk=post_detail.pk %}">Comments {{post_detail.comments.count}} </a></span>
+       <span><a class='btn btn-default' href="{% url 'blog:write_comment' pk=post_detail.pk %}">Write Comment</a></span></p>
+       {% endif %}
+
+    </div>
+
+  </div>
+
+
+{% endblock %}

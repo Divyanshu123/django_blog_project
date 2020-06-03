@@ -1,0 +1,18 @@
+{% extends 'blog/base.html'%}
+{% block title_block %}
+About
+{% endblock %}
+
+
+
+{% block body_block %}
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h1>Welcome to the Authors Point!</h1>
+    <p>Here you can read the articles posted by authors across globe. You can also post your own article here
+      after <a href="{% url 'blog:register'%}">registering</a> and can let world know about your ideas! So explore this, and <a href="{% url 'login'%}">start writing.</a> </p>
+
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% block title_blok %}
+post delete
+{% endblock %}
+
+{% block body_block %}
+  <div class="container-fluid">
+    <div class="jumbotron">
+      <h2>Are you sure you want to delete {{post.title}}?</h2>
+      <form method="post">
+        {% csrf_token %}
+        <input class= 'btn btn-danger' type="submit" name="" value="Confirm">
+
+
+      </form>
+
+    </div>
+
+  </div>
+  {% endblock %}
